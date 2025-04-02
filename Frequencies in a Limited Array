@@ -1,0 +1,19 @@
+class Solution:
+    # Function to count the frequency of all elements from 1 to N in the array.
+    def frequencyCount(self, arr):
+        #  By using hash map
+        n = len(arr)
+        result = [0]*n
+        
+        # calcultaing  the frequency of each number in array
+        freq_map = {}
+        for num in arr:
+            if num  in freq_map:
+                freq_map[num] += 1
+            else:
+                freq_map[num] = 1
+        
+        for i in range(1,n+1):
+            if i in freq_map:
+                result[i-1] = freq_map[i]
+        return result
