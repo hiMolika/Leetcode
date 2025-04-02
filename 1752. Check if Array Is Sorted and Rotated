@@ -1,0 +1,13 @@
+class Solution(object):
+    def check(self, nums):
+       count_breaks = 0
+       n = len(nums)
+    
+       for i in range(n):
+        # Check if the current element is greater than the next element
+          if nums[i] > nums[(i + 1) % n]:
+             count_breaks += 1
+            
+    # The array is sorted and rotated if there is at most one break
+       return count_breaks <= 1
+       
