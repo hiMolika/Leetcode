@@ -1,0 +1,14 @@
+#User function Template for python3
+class Solution:
+    def getSecondLargest(self, arr):
+        # Code Here
+        largest = arr[0]
+        sec_largest = -1
+        n = len(arr)
+        for i in range(n):
+            if arr[i]>largest:
+                sec_largest = largest
+                largest = arr[i]
+            elif arr[i]<largest and arr[i]>sec_largest:
+                sec_largest = arr[i]
+        return sec_largest
