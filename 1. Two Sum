@@ -1,0 +1,9 @@
+ def twoSum(self, nums, target):
+       hash_map = {}
+       n = len(nums)
+       for i in range(n):
+           x = target - nums[i]
+           if x in hash_map:
+                 return [hash_map[x],i]
+           hash_map[nums[i]] = i
+       return []
