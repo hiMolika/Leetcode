@@ -1,0 +1,19 @@
+class MyCalendarTwo(object):
+
+    def __init__(self):
+        self.booked = []
+        self.overlap = []
+
+    def book(self, startTime, endTime):
+        # checking triple overlap condition
+        for os,oe in self.overlap :
+            if startTime < oe and endTime > os:
+                return False
+        
+        # checking in booked 
+        for bs,be in self.booked:
+            if startTime < be and endTime > bs:
+                self.overlap.append((max(startTime,bs),min(endTime,be)))
+        
+        self.booked.append((startTime,endTime))
+        return True
