@@ -1,0 +1,11 @@
+class Solution(object):
+    def waysToSplitArray(self, nums):
+        total = sum(nums)
+        prefix = 0
+        count = 0
+
+        for i in range(len(nums)-1):
+            prefix += nums[i]
+            if prefix >= total-prefix:
+                count += 1
+        return count
