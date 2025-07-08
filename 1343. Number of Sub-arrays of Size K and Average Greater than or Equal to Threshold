@@ -1,0 +1,17 @@
+class Solution(object):
+    def numOfSubarrays(self, arr, k, threshold):
+        n = len(arr)
+        if n < k:
+            return None
+        required_sum = k*threshold
+        count = 0
+        current_sum = sum(arr[:k])
+        
+        if current_sum >= required_sum:
+            count += 1
+
+        for i in range(k,n):
+            current_sum += arr[i]-arr[i-k]
+            if current_sum >= required_sum:
+                count += 1
+        return count
